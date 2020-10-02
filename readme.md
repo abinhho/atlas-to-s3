@@ -1,4 +1,6 @@
 # How to use
+Leave `DB_NAME` is empty to backup all databases
+
 ```
 docker run \
   -v atlas_to_s3_tmp:/backup \
