@@ -1,0 +1,16 @@
+FROM mongo:4.2
+
+RUN apt-get update && \
+    apt-get install -y cron python3 python3-pip && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install awscli
+
+ADD atlas_to_s3.sh /atlas_to_s3.sh
+ADD atlas_to_s3_entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh && chmod +x /atlas_to_s3.sh
+
+VOLUME /backup
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD [""]
