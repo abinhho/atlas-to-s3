@@ -1,9 +1,4 @@
-# Heatmap Local enviroment
-```
-docker build . -t abinhho/atlas-to-s3 -f Dockerfile.atlas_to_s3 --force-rm
-docker push abinhho/atlas-to-s3
-```
-
+# How to use
 ```
 docker run \
   -v atlas_to_s3_tmp:/backup \
@@ -14,5 +9,12 @@ docker run \
   -e 'BUCKET=my-bucket' \
   -e 'AWS_ACCESS_KEY_ID=xxx' \
   -e 'AWS_SECRET_ACCESS_KEY=xxx' \
-  atlas-to-s3
+  abinhho/atlas-to-s3
+```
+
+# Dev noted
+
+```
+docker build . -t abinhho/atlas-to-s3 -f Dockerfile.atlas_to_s3 --force-rm
+docker push abinhho/atlas-to-s3
 ```
