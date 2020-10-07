@@ -39,9 +39,9 @@ set -e
 
 # Create tar of backup directory
 tar cvf $TAR -C $DEST .
-# 　
+
 # Upload tar to s3
-aws s3 cp $TAR s3://$BUCKET/ --storage-class STANDARD_IA
+/usr/local/bin/aws s3 cp $TAR s3://$BUCKET/ --storage-class STANDARD_IA
 
 # Remove tar file locally
 rm -f $TAR
